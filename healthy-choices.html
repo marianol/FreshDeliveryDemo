@@ -1,0 +1,129 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Acme Fresh Delivery Foods</title>
+    <meta name="description" content="Welcome to Acme Fresh Foods">
+    <meta name="author" content="Big Minnow">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <!-- Google Font Arvo -->
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+    <link href="css/acme.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="acme-container">
+          <!-- header -->
+          <header>
+            <div class="masthead clearfix">
+              <div class="inner">
+                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                  <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                              Current Reports <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="top-sellers.html">Top Sellers</a></li>
+                                <li><a href="healthy-choices.html">Healthy Choices</a></li>
+                                <li><a href="go-green.html">Go Green</a></li>
+                            </ul>
+                        </li>  
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                              Tools <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="shipping-optimizer.html">Shipping Optimizer</a></li>
+                                <li><a href="locations.html">Locations</a></li>
+                                <li><a href="best-deals.html">Best Deals</a></li>
+                            </ul>
+                        </li> 
+                      </ul>
+                      <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group search-group">
+                          <input type="text" class="form-control search-input" placeholder="Search">
+                          <button type="submit" class="btn btn-success btn-search"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                  </div>
+                  <!-- /.container-fluid -->
+                </nav>
+              </div>
+            </div>
+          </header>
+          <!-- heathy choices content -->
+          <a name="healthy-choices"  ></a>
+          <article class="healthy-choices interior-article">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 col-xl-3 aux-col">
+                  <img src="img/interior-header-staff.jpg" width="100%" height="220" alt="Healthy Choices" class="img-responsive" />
+                  <h2>Healthy Choices</h2>
+                  <p class="lead">A new way to order your fresh produce!</p>
+                  <img src="img/seasonal-legend.jpg" width="100%" height="220" alt="Seasonal Legend" class="img-responsive" />
+                </div>
+                <div style="background-color:#FFF" class="col-md-9 main-col main-col-interior">
+                  <h2 class="chart-header">Select bubbles to view individual products.</h2>
+                  <div id="healthy-choices" class="chart-container"></div>
+                  <table class="data-table" border="0" style="color:black;" width="100%" class="img-responsive">
+                  	<tr>
+						<td height="350" width="4%" rowspan="3"></td>
+						<td height="350" width="31%" rowspan="3" valign="top"><span id="ImageLink"></span></td>
+						<td valign="bottom" width="65%" colspan="2" height="90">
+						<h3><b><span id="ProductNameSimple"></span></b></h3></td>
+						</tr>
+						<tr>
+						<td valign="top" width="23%">Group:&nbsp;<b><span id="Group" style="font-family: sans-serif;"></span></b></td>
+						<td valign="top" width="42%">Price per Unit:&nbsp;<b><span id="Price" style="font-family: sans-serif;"></span></b></td>
+						</tr>
+                      <tr>
+						<td valign="top" width="23%">Availability:&nbsp;<b><span style="font-family: sans-serif;" id="AvailSupply"></span></b></td>
+						<td valign="top" width="42%">Units Per Case:&nbsp;<b><span id="UnitsCase" style="font-family: sans-serif;"></span></b></td>
+						</tr>
+					</table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <footer>
+            <div class="mastfoot">
+              <div class="inner">
+                <p>&copy; Acme Fresh Delivery Foods is not a real company, this is a demo website for <a href="http://jaspersoft.com" target="_blank">Jaspersoft</a>.</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <!-- Core JavaScript
+     ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="js/require.js"></script>
+  	<script type='text/javascript' src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
+	<script src="js/visualizeHelper.js"></script>
+	<script type='text/javascript' src="js/healthy-choices.js"></script>
