@@ -26,8 +26,8 @@
         }
 
         function initializeReports() {
-            var master = '/public/Samples/Reports/Brands';
-            var slave = '/public/Samples/Reports/Products';
+            var master = JRSSamplesPath + 'Brands';
+            var slave = JRSSamplesPath + 'Products';
 
             masterReport = renderReportLink(master, '#brands', JRSClient);
             slaveReport = renderReport(slave, '#products', JRSClient);

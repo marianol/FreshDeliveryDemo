@@ -47,6 +47,8 @@ jrsConfig =  {
     }
 };
 
+var JRSSamplesPath  = '/public/Samples/FreshDelivery_Demo/';
+
 var JRSClient; // Will be storing my JRS Client object here :)
 
 

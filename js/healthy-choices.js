@@ -24,7 +24,7 @@
         }
 
         function initializeReports() {
-            var master = '/public/Samples/Reports/HealthyChoiceProducts';
+            var master = JRSSamplesPath + 'HealthyChoiceProducts';
 
             masterReport = renderReportLink(master, '#healthy-choices', JRSClient);
             updateProduct('Ebony Red Pepper', '2', 'Fresh Vegetables', '2.88', '14');

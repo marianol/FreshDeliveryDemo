@@ -26,9 +26,9 @@
         }
 
         function initializeReports() {
-            var master = '/public/Samples/Reports/21.5GoGreenChart';
-            var slave = '/public/Samples/Reports/21.6GoGreenTable';
-			 var map = '/public/Samples/Reports/21.7GoGreenMap';
+            var master = JRSSamplesPath + '21.5GoGreenChart';
+            var slave = JRSSamplesPath + '21.6GoGreenTable';
+			 var map = JRSSamplesPath + '21.7GoGreenMap';
 
             masterReport = renderReportLink(master, '#goGreenChart', JRSClient);
             slaveReport = renderReport(slave, '#goGreenTable', JRSClient);
