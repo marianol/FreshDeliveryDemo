@@ -35,7 +35,6 @@ body {
   font-family: 'Arvo';
 }
 body {
-  color: #fff;
   background-color: #365a35;
   text-align: center;
 }
@@ -362,6 +361,7 @@ h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
 .main-col .chart-container {
     margin:4px;
 	float:left;
+	color: #000;
 }
 .icon-glyph {
     float:right;
@@ -426,4 +426,8 @@ h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
 	border-bottom:1px solid transparent;
 	border-top-right-radius:3px;
 	border-top-left-radius:3px;
+}
+
+.col-text {
+	 color:#FFF;
 }
