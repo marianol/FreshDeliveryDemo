@@ -4,7 +4,7 @@ FreshDeliveryDemo
 Embedded JasperServer Demo with Visualize.js
 
 Image thumbnails will be viewable once functions (for the Highcharts API) are enabled by doing the following.
-- Open the following file under
+- Open the properties file under
 /Applications/jasperreports-server-5.6/apache-tomcat/webapps/jasperserver-pro/WEB-INF/classes/jasperreports.properties
 - Place this line of code at the bottom of this properties file:
 com.jaspersoft.jasperreports.highcharts.function.properties.allowed=true
