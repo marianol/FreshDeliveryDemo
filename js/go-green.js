@@ -43,9 +43,9 @@
         }
 
         function initializeReports() {
-            var master = '/public/Samples/Reports/21.5GoGreenChart';
-            var slave = '/public/Samples/Reports/21.6GoGreenTable';
-			 var map = '/public/Samples/Reports/21.7GoGreenMap';
+            var master = '/public/Samples/FreshDelivery_Demo/21.5GoGreenChart';
+            var slave = '/public/Samples/FreshDelivery_Demo/21.6GoGreenTable';
+			 var map = '/public/Samples/FreshDelivery_Demo/21.7GoGreenMap';
 
             mapReport = renderMapReportLink(map, '#GreenMap', JRSClient);
             masterReport = renderReportLink(master, '#goGreenChart', JRSClient);
