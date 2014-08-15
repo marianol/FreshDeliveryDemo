@@ -1,24 +1,66 @@
 FreshDeliveryDemo
 =================
 
-Embedded JasperServer Demo with Visualize.js
+This is a demo site that embeds [JasperReports Server](http://www.jaspersoft.com/meet-new-jaspersoft) using the [Visualize.js](http://community.jaspersoft.com/project/visualizejs) framework
 
-Image thumbnails will be viewable once functions (for the Highcharts API) are enabled by doing the following.
-- Open the properties file under
-/Applications/jasperreports-server-5.6/apache-tomcat/webapps/jasperserver-pro/WEB-INF/classes/jasperreports.properties
-- Place this line of code at the bottom of this properties file:
-com.jaspersoft.jasperreports.highcharts.function.properties.allowed=true
+Code: https://github.com/marianol/FreshDeliveryDemo
 
-Update the store table with latitude/longitude data to view points on map
-- Open foodmart-store-update.sql under FreshDeliveryDemo / JasperServerResources on GitHub.
-- Run the ALTER and UPDATE statements as SQL queries in a program such as pgAdmin III for PostgreSQL.
-- You can view the updated store table by running the following query: SELECT * FROM store
+Author(s): [See list of Contributors](https://github.com/marianol/FreshDeliveryDemo/graphs/contributors)
 
-How to turn off the chart selector icon for specific charts: (this is optional)
-- In JSS go to the main properties panel and on the Property Expressions select the “…” button.
+Version: 0.2
+
+
+##Description
+The sample is designed to showcase the features of the Jasper Visualize.js framework to embed BI in web applications. 
+Ibe used with a set of reports that are included in this sample that depend on the Foodmart Sample dataset that is provided in the standard trial instalation of JasperServer Professional 5.6.
+
+Essentially contains a demo site (Fresh Delivery) a set of reports integrated within. It runs form a WebServer since it only uses HTML and Javascript so there is no specific requirements for the webserver.
+
+##Install the Sample
+###Requirements / Dependencies
+- A [JasperReports Server v5.6](http://www.jaspersoft.com/three-ways-test-drive-jaspersoft-bi-software) installed
+- A web server to host this sample. I use Apache HTTPD you use whatever floats your boat.
+
+### Instalation Steps
+1. Unzip the release (or clone the repo) into your web server's web root. The instrucctions assume that this location is called 'FRESHDELIVERY_PATH'
+1. Import /JapserServerResources/freshDelivery-RepositoryExport.zip to your JasperServer 5.6 Pro instance. [Check this link if you do not know how.](http://community.jaspersoft.com/documentation/jasperreports-server-administration-guide-beta/import-and-export-through-web-ui#import-export_2353750880_1044705) and if you like the command line go to your JRS buildomatic folder and just `./js-import.sh --input-zip FRESHDELIVERY_PATH/JasperServerResources/freshDelivery-RepositoryExport.zip`
+1. Modify your jasperreports.properties to allow JavaScript functions in the HTML5 Charting Library
+	1. Locate your jasperreports.properties in JasperReportsServer  `<tomcat-home>/webapps/jasperserver-pro/WEB-INF/classes/jasperreports.properties`
+	1. Add this line at the end of the file:  `com.jaspersoft.jasperreports.highcharts.function.properties.allowed=true`
+1. This sample needs to add Lat/Long coordinates to the store table on the foodmart database
+	1. the sql file with this changes is located in the repo FRESHDELIVERY_PATH/JasperServerResources/foodmart-store-update.sql
+	1. use that sql script to update your DB, at the command prompt: `psql -U postgres -d foodmart -a -f FRESHDELIVERY_PATH/JasperServerResources/foodmart-store-update.sql` 
+1. Go to http://<your-server>/FreshDeliveryDemo/ 
+1. Enjoy!!!
+
+## Some lessons learned
+####How to turn off the chart selector icon for specific charts in JRS
+- In JSS go to the main properties panel and on the Property Expressions select the "…” button.
 - Select Add and for the Property Name use: com.jaspersoft.jasperreports.highcharts.interactive
-- Do NOT select “use an Expression”. Use a value of: true
-- Use the following in your CSS style sheet: #products .show_chartTypeSelector_wrapper {display: none;}
-- You would replace “products” with the div id that you are using to display your report in the HTML.
+- Set the value to `true`. Do not select “use an Expression” unless you are going to use one for setting this property.
+
+
+LICENSE AND COPYRIGHT NOTIFICATION
+==================================
+
+ Copyright (C) 2005 - 2012 Jaspersoft Corporation - All rights reserved.
+
+ Unless you have purchased a commercial license agreement from Jaspersoft,
+ the following license terms apply:
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU Affero  General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public  License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+
 
 
