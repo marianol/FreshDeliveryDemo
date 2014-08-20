@@ -30,15 +30,26 @@ Essentially contains a demo site (Fresh Delivery) a set of reports integrated wi
 1. This sample needs to add Lat/Long coordinates to the store table on the foodmart database
 	1. the sql file with this changes is located in the repo FRESHDELIVERY_PATH/JasperServerResources/foodmart-store-update.sql
 	1. use that sql script to update your DB, at the command prompt: `psql -U postgres -d foodmart -a -f FRESHDELIVERY_PATH/JasperServerResources/foodmart-store-update.sql` 
+1. The pages expect JasperServer to be accessible in `http://localhost:8080/jasperserver.pro` since that is normally not the case you will need to change this. For example if your jasperserver is located in `http://my.jasperserver.com:8080/jasperserver.pro` just open a terminal and do:
+```
+$ sed -i 's~localhost~my.jasperserver.com~' /var/www/html/freshdelivery/go-green.html
+$ sed -i 's~localhost~my.jasperserver.com~' /var/www/html/freshdelivery/top-sellers.html
+$ sed -i 's~localhost~my.jasperserver.com~' /var/www/html/freshdelivery/healthy-choices.html
+```
+1. The script is hardcoded to login using jasperadmin/jasperadmin if you need to change this, do so in `/js/visualizeHelper.js`
 1. Go to http://<your-server>/FreshDeliveryDemo/ 
 1. Enjoy!!!
 
 ## Some lessons learned
+This is just work in progress and should probably be in another file...
+
 ####How to turn off the chart selector icon for specific charts in JRS
 - In JSS go to the main properties panel and on the Property Expressions select the "…” button.
 - Select Add and for the Property Name use: com.jaspersoft.jasperreports.highcharts.interactive
 - Set the value to `true`. Do not select “use an Expression” unless you are going to use one for setting this property.
 
+####Resource not found error
+- You may see from time to time a resource not found error appear in the GoGreen.html page. This is because of a bad implementation in the sample. We call an update on the report parameters right after we init the report. In this case a race condition exists and if the report is not fully rendered before the updateTable() and changeChartCity() get executed you will see that 404 error but after accepting it all will work as expected. We need to fix this by runnin this functions in the OnReportFinished Event 
 
 LICENSE AND COPYRIGHT NOTIFICATION
 ==================================
