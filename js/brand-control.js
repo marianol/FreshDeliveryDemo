@@ -1,70 +1,74 @@
-		var masterReport;
-		var slaveReport;
+/*
+ * ========================================================================
+ * brand-control.js : v0.8.0
+ *
+ * ========================================================================
+ * Copyright 2014
+ * Author: Mariano Luna, Daniel Petzold
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft Inc., the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify it under the terms of the
+ * GNU Affero General Public License as published by the Free Software Foundation, either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public
+ * License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ * ========================================================================
+ */
 
-        // Get my Client Object
-        visualize(function(v){
-            JRSClient = v;
-            initializeReports();
-        });
+var masterReport;
+var slaveReport;
+var defBrand = 'Hermanos';
 
-        function renderReportLink(uri, container, v) {
-            return v.report({
-                resource: uri,
-                container: container,
-                linkOptions: {
-                    events: {
-                        "click"  : function(evt, link){
-                            updateBrand(link.parameters.brand_name, link.parameters.total_sales);
-                        }
-                    }
-                },
-                error: function(err) {
-                    console.log(err.message);
-                }
-            });
+// Get my Client Object
+visualize(function(v){
+	JRSClient = v;
+	initializeReports();
+});
 
-        }
+function renderReportLink(uri, container, v) {
+		return v.report({
+			resource: uri,
+			container: container,
+			linkOptions: {
+				events: {
+					"click"  : function(evt, link){
+						updateBrand(link.parameters.brand_name);
+					}
+				}
+			},
+			error: function(err) {
+				console.log(err.message);
+			}
+		});
+	}
 
         function initializeReports() {
-            var master = JRSSamplesPath + 'Brands';
-            var slave = JRSSamplesPath + 'Products';
-
+            var master = '/public/Samples/Reports/Brands';
+            var slave = '/public/Samples/Reports/Products';
+			
+			 $('#BrandName1').html(defBrand);
+			 
             masterReport = renderReportLink(master, '#brands', JRSClient);
             slaveReport = renderReport(slave, '#products', JRSClient);
-            updateBrand('Hermanos', 159167.84);
         }
 
         // Update Slave report with the passed Brand Parameters
-        function updateBrand(brandName, brandTotal) {
+        function updateBrand(brandName) {
             var parameters = {};
-            var brandinfo = '';
             parameters['brand'] = [ brandName ];
             slaveReport.params(parameters).run();
-            switch (brandName) {
-                    case 'Hermanos':
-                        brandinfo = 'Hermanos offers...';
-                        break;
-                    case 'Ebony':
-                        brandinfo = 'Ebony offers...';
-                        break;
-                    case 'High Top':
-                        brandinfo = 'High Top offers...';
-                        break;
-					  case 'Tell Tale':
-                        brandinfo = 'Tell Tale offers...';
-                        break;
-                    case 'Tri-State':
-                        brandinfo = 'Tri-State offers...';
-                        break;
-                    default:
-                        brandinfo = 'N/A';
-            }
-            $('#BrandName').html(brandinfo);
+            
             $('#BrandName1').html(brandName);
-            $('#BrandNameTitle').html(brandinfo);
-            $('#BrandSales').html('$ ' + Number(brandTotal).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
         };
 		
+		
+		// Preload images for tooltip
 		$(window).load(function() {
 			function preload(arrayOfImages) {
     			$(arrayOfImages).each(function(){
