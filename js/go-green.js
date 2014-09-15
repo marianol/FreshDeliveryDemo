@@ -26,6 +26,10 @@ var masterReport;
 var slaveReport;
 var defCity = 'San Diego';
 var defDepartment = 'Produce';
+var master = '/public/Samples/FreshDelivery_Demo/21.5GoGreenChart';
+var slave = '/public/Samples/FreshDelivery_Demo/21.6GoGreenTable';
+var map = '/public/Samples/FreshDelivery_Demo/21.7GoGreenMap';
+
 
 // Get my Client Object
 visualize(function(v){
@@ -67,12 +71,39 @@ function renderMapReportLink(uri, container, v) {
         });
     }
 
-    function initializeReports() {
-        var master = '/public/Samples/FreshDelivery_Demo/21.5GoGreenChart';
-        var slave = '/public/Samples/FreshDelivery_Demo/21.6GoGreenTable';
-        var map = '/public/Samples/FreshDelivery_Demo/21.7GoGreenMap';
+	function exportReport(format) { 
+		var parameters = {};
+		parameters['export'] = [true];
+		parameters['department'] = [ defDepartment ];
+		parameters['city_name'] = [defCity];
+		var myReport =  JRSClient.report({
+            		resource: slave,
+            		container: "#hiddenExport",
+			params: parameters,
+            		events: {
+            			reportCompleted: function(status) {
+                		myReport
+					.export({outputFormat : format
+					})
+            			}
+			},
+			error: function(err) {
+                		console.log(err.message);
+            		}
+        	});	
+		//myReport
+      	    	//	.export({ outputFormat: format
+		//})
+		.done(function (link) {
+            		window.open(link.href); //open new window to download report
+        	})
+        	.fail(function (err) {
+            		alert(err.message);
+        	});
+	}
 
-        $('#DepartmentName').html(defDepartment);
+    function initializeReports() {
+                $('#DepartmentName').html(defDepartment);
         $('#CityName1').html(defCity);
         $('#CityName2').html(defCity);
         mapReport = renderMapReportLink(map, '#GreenMap', JRSClient);
@@ -85,7 +116,9 @@ function renderMapReportLink(uri, container, v) {
     // Update Slave report with the passed Department parameter
     function updateTable(departmentName) {
         var parameters = {};
-        parameters['department'] = [ departmentName ];
+        defDepartment = departmentName;
+	parameters['department'] = [ departmentName ];
+	//parameters['export'] = [true];
         slaveReport.params(parameters).run();
 
         $('#DepartmentName').html(departmentName);
@@ -94,6 +127,7 @@ function renderMapReportLink(uri, container, v) {
     // Update Slave report with the passed Department parameter
     function changeChartCity(cityName) {
         var parameters = {};
+	defCity = cityName;
         parameters['city_name'] = [ cityName ];
         masterReport.params(parameters).run();
 
