@@ -24,6 +24,9 @@
 var masterReport;
 var slaveReport;
 var defBrand = 'Hermanos';
+var brandName = '';
+var labelProducts = 'Products'
+var labelTop10 = 'Top Ten Products';
 
 // Get my Client Object
 visualize(function(v){
@@ -39,6 +42,7 @@ function renderReportLink(uri, container, v) {
 				events: {
 					"click"  : function(evt, link){
 						updateBrand(link.parameters.brand_name);
+						
 					}
 				}
 			},
@@ -49,9 +53,10 @@ function renderReportLink(uri, container, v) {
 	}
 
         function initializeReports() {
-            var master = '/public/Samples/Reports/Brands';
-            var slave = '/public/Samples/Reports/Products';
+            var master = '/public/Samples/FreshDelivery_Demo/Brands';
+            var slave = '/public/Samples/FreshDelivery_Demo/Products';
 			
+			 $('#Label').html(labelProducts);
 			 $('#BrandName1').html(defBrand);
 			 
             masterReport = renderReportLink(master, '#brands', JRSClient);
@@ -60,13 +65,39 @@ function renderReportLink(uri, container, v) {
 
         // Update Slave report with the passed Brand Parameters
         function updateBrand(brandName) {
-            var parameters = {};
+            keepBrand = brandName;
+			 var parameters = {};
             parameters['brand'] = [ brandName ];
             slaveReport.params(parameters).run();
-            
-            $('#BrandName1').html(brandName);
+			 
+            $('#BrandName1').html(brandName);		
         };
 		
+		function topTen() {
+			if(typeof keepBrand === 'undefined'){
+				keepBrand = defBrand;   
+ 			};
+			var limitShown = 'limit 10';
+			var parameters = {};
+			parameters['Limiter'] = [ limitShown ];
+			parameters['brand'] = [ keepBrand ];
+			slaveReport.params(parameters).run();
+			
+			$('#Label').html(labelTop10); 
+        }
+		
+		function resetControls() {
+			if(typeof keepBrand === 'undefined'){
+				keepBrand = defBrand;   
+			};
+			var limitShown = '';
+			var parameters = {};
+			parameters['Limiter'] = [ limitShown ];
+			parameters['brand'] = [ keepBrand ];
+			slaveReport.params(parameters).run();
+			
+			$('#Label').html(labelProducts);
+        }
 		
 		// Preload images for tooltip
 		$(window).load(function() {
