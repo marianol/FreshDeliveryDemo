@@ -14,14 +14,6 @@
     <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="css/acme.css" rel="stylesheet">
-      <!-- Core JavaScript
-     ================================================== -->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/require.js"></script>
-      <script type='text/javascript' src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
-      <script src="js/visualizeHelper.js"></script>
-      <script type='text/javascript' src="js/healthy-choices.js"></script>
   </head>
   <body>
     <div class="site-wrapper">
@@ -82,7 +74,7 @@
             </div>
           </header>
           <!-- heathy choices content -->
-          <a name="healthy-choices1"  ></a>
+          <a name="healthy-choices"  ></a>
           <article class="healthy-choices interior-article">
             <div class="container-fluid">
               <div class="row">
@@ -91,14 +83,27 @@
                   	 <div class="col-text">
                   		<h2>Healthy Choices</h2>
                   		<p class="lead">A new way to order your fresh produce!</p>
-                      </div>
-                  <img src="img/seasonal-legend.jpg" width="100%" height="220" alt="Seasonal Legend" class="img-responsive" />
+                         </div>
+                   
+					<img src="img/seasonal-legend/seasonal-title.jpg" width="100%" height="100" alt="Seasonal" class="img-responsive"/> 
+           
+                  <img src="img/seasonal-legend/high-off.jpg" width="40%" height="100" style="float:left" alt="High" class="img-responsive" onmouseover="this.src='img/seasonal-legend/high-on2.jpg';" onmouseout="this.src='img/seasonal-legend/high-off.jpg';" onClick="passControls('SupplyTime', 1);"/>
+                  
+                  <img src="img/seasonal-legend/good-off.jpg" width="40%" height="100" alt="Good" class="img-responsive" onmouseover="this.src='img/seasonal-legend/good-on2.jpg';" onmouseout="this.src='img/seasonal-legend/good-off.jpg';" onClick="passControls('SupplyTime', 2);"/>
+                  
+                  <img src="img/seasonal-legend/limited-off.jpg" width="40%" height="100" style="float:left" alt="Limited" class="img-responsive" onmouseover="this.src='img/seasonal-legend/limited-on2.jpg';" onmouseout="this.src='img/seasonal-legend/limited-off.jpg';" onClick="passControls('SupplyTime', 3);"/>
+                  
+                  <img src="img/seasonal-legend/none-off.jpg" width="40%" height="100" alt="None" class="img-responsive" onmouseover="this.src='img/seasonal-legend/none-on2.jpg';" onmouseout="this.src='img/seasonal-legend/none-off.jpg';" onClick="passControls('SupplyTime', 4);"/>
+                  
+                  <img src="img/seasonal-legend/all-off.jpg" width="100%" height="100" alt="All" class="img-responsive" onmouseover="this.src='img/seasonal-legend/all-on.jpg';" onmouseout="this.src='img/seasonal-legend/all-off.jpg';" onClick="resetControls('SupplyTime');"/>
+                  
+                  
                 </div>
                 <div style="background-color:#FFF" class="col-md-9 main-col main-col-interior">
                   <h2 class="chart-header">Select bubbles to view individual products.</h2>
                   <div id="healthy-choices" class="chart-container"></div>
                   <table class="data-table" border="0" style="color:black;" width="100%" class="img-responsive">
-                  	<tr>
+                  				<tr>
 						<td height="350" width="4%" rowspan="3"></td>
 						<td height="350" width="31%" rowspan="3" valign="top"><span id="ImageLink"></span></td>
 						<td valign="bottom" width="65%" colspan="2" height="90">
@@ -108,7 +113,7 @@
 						<td valign="top" width="23%">Group:&nbsp;<b><span id="Group" style="font-family: sans-serif;"></span></b></td>
 						<td valign="top" width="42%">Price per Unit:&nbsp;<b><span id="Price" style="font-family: sans-serif;"></span></b></td>
 						</tr>
-                      <tr>
+                      				<tr>
 						<td valign="top" width="23%">Availability:&nbsp;<b><span style="font-family: sans-serif;" id="AvailSupply"></span></b></td>
 						<td valign="top" width="42%">Units Per Case:&nbsp;<b><span id="UnitsCase" style="font-family: sans-serif;"></span></b></td>
 						</tr>
@@ -116,9 +121,8 @@
                   </div>
                 </div>
               </div>
+            </div>
           </article>
-        </div>
-
           <footer>
             <div class="mastfoot">
               <div class="inner">
@@ -129,5 +133,12 @@
         </div>
       </div>
     </div>
-</body>
-</html>
+    <!-- Core JavaScript
+     ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="js/require.js"></script>
+  	<script type='text/javascript' src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
+	<script src="js/visualizeHelper.js"></script>
+	<script type='text/javascript' src="js/healthy-choices.js"></script>
