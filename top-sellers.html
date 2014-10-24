@@ -17,6 +17,32 @@
 
   </head>
   <body>
+  <!-- Login Authentication Help Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span 							class="sr-only">Close</span></button>
+        			<h4 class="modal-title" id="myModalLabel">Authentication Information</h4>
+      			</div>
+      			<div class="modal-body">
+  						<h3>General Access:</h3>
+							<h5>(No login necessary)</h5>
+                      	<br>
+						<h3>Wholesale Login:</h3>
+                     		<h5>Username: "account"</h5>
+							<h5>Password: "account"</h5>
+							<br>
+						<h3>Admin Login:</h3>
+							<h5>Username: "admin"</h5>
+							<h5>Password: "admin"</h5>
+      			</div>
+      			<div class="modal-footer">
+      			</div>
+    		</div>
+  		</div>
+	</div>
+  
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="acme-container">
@@ -60,12 +86,20 @@
                             </ul>
                         </li> 
                       </ul>
-                      <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group search-group">
-                          <input type="text" class="form-control search-input" placeholder="Search">
-                          <button type="submit" class="btn btn-success btn-search"><i class="glyphicon glyphicon-search"></i></button>
-                        </div> 
-                      </form>
+                      
+                      <!-- Authentication login/logout interface -->
+                		<form class="navbar-form navbar-right" role="search">
+                    	<div class="form-group">
+                        <input type="text" class="form-control" id="username" placeholder="Username">&nbsp;
+                    	</div>
+                    	<div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="Password">&nbsp;&nbsp;&nbsp;
+                    	</div>
+                    		<button class="btn btn-success btn-large" id="login"><i class="glyphicon glyphicon-ok"></i></button>&nbsp;
+                      	<button class="btn btn-success btn-large" id="logout"><i class="glyphicon glyphicon-log-out"></i></button>&nbsp;&nbsp;
+                         <a href="#" data-toggle="modal" data-target="#myModal">Info</a>
+                		 </form>
+                      
                     </div>
                     <!-- /.navbar-collapse -->
                   </div>
