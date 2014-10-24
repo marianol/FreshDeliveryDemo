@@ -14,19 +14,34 @@
     <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="css/acme.css" rel="stylesheet">
-      <!-- JavaScript files
-     ================================================== -->
-
-      <script src="js/jquery.min.js"></script>
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/require.js"></script>
-      <script src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
-      <script src="js/visualizeHelper.js"></script>
-      <script src="js/go-green.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js"></script>
   </head>
   <body>
+  <!-- Login Authentication Help Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span 							class="sr-only">Close</span></button>
+        			<h4 class="modal-title" id="myModalLabel">Authentication Information</h4>
+      			</div>
+      			<div class="modal-body">		
+  						<h3>General Access:</h3>
+							<h5>(No login necessary)</h5>
+                      	<br>
+						<h3>Wholesale Login:</h3>
+                     		<h5>Username: "account"</h5>
+							<h5>Password: "account"</h5>
+							<br>
+						<h3>Admin Login:</h3>
+							<h5>Username: "admin"</h5>
+							<h5>Password: "admin"</h5>
+      			</div>
+      			<div class="modal-footer">
+      			</div>
+    		</div>
+  		</div>
+	</div>
+  
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="acme-container">
@@ -70,12 +85,20 @@
                             </ul>
                         </li> 
                       </ul>
+                      
+                      <!-- Authentication login/logout interface -->
                       <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group search-group">
-                          <input type="text" class="form-control search-input" placeholder="Search">
-                          <button type="submit" class="btn btn-success btn-search"><i class="glyphicon glyphicon-search"></i></button>
-                        </div>
-                      </form>
+                    	<div class="form-group">
+                        <input type="text" class="form-control" id="username" placeholder="Username">&nbsp;
+                    	</div>
+                    	<div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="Password">&nbsp;&nbsp;&nbsp;
+                    	</div>
+                    		<button class="btn btn-success btn-large" id="login"><i class="glyphicon glyphicon-ok"></i></button>&nbsp;
+                      	<button class="btn btn-success btn-large" id="logout"><i class="glyphicon glyphicon-log-out"></i></button>&nbsp;&nbsp;
+                       <a href="#" data-toggle="modal" data-target="#myModal">Info</a>  
+                		 </form>
+                         
                     </div>
                     <!-- /.navbar-collapse -->
                   </div>
@@ -93,23 +116,25 @@
                   <img src="img/go-green-trees.jpg" width="100%" height="220" alt="Go Green!" class="img-responsive" />
                   	<div class="col-text">
                   		<h2>Go Green!</h2>
-                  		<p class="lead">Environmentaly friendly products in <b><span id="CityName1" class="cityName" ></span>.</b></p>
+                  		<p class="lead">Environmentally friendly products in <b><span id="CityName1"></span>.</b></p>
                          <p>(Select map to update location)</p>
                   	</div>
                   <div id="GreenMap"></div>
 				  </div>
 				  <div style="background-color:#F0E6CC" class="col-md-7 main-col main-col-interior">
                   <div class="green-panel-heading">
-                      <h3 style="font-size: 20px; font-family: sans-serif; color: #3b5930; font-weight: bold;"><span id="CityName2" class="cityName"></span> Departments</h3>
+                      <h3 style="font-size: 20px; font-family: sans-serif; color: #3b5930; font-weight: bold;"><span id="CityName2"></span> Departments</h3>
                     </div>
                   <div class="chart-container">
-                  	<div id="goGreenChart"></div>                    
+                  	<div id="goGreenChart"></div>                  
                   </div>
                     <div class="green-panel-heading">
                       <h3 style="font-size: 20px; font-family: sans-serif; color: #3b5930; font-weight: bold;"><span id="DepartmentName"></span></h3>
                     </div>
+                  
                   <div style="background-color:#f0e6cd" sclass="chart-container">
-                  	<div style="background-color:#f0e6cd" id="goGreenTable"></div>
+                  <button id="ExportButton" style="float:center">Export</button>
+                  <div style="background-color:#f0e6cd" id="goGreenTable"></div>
                   </div>
                 </div>
               </div>
@@ -126,5 +151,14 @@
       </div>
     </div>
     
-</body>
-</html>
+        <!-- JavaScript files
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="js/require.js"></script>
+    <script src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
+    <script src="js/visualizeHelper.js"></script>
+    <script src="js/go-green.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
