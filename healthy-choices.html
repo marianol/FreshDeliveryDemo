@@ -16,6 +16,32 @@
     <link href="css/acme.css" rel="stylesheet">
   </head>
   <body>
+  <!-- Login Authentication Help Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span 							class="sr-only">Close</span></button>
+        			<h4 class="modal-title" id="myModalLabel">Authentication Information</h4>
+      			</div>
+      			<div class="modal-body">		
+  						<h3>General Access:</h3>
+							<h5>(No login necessary)</h5>
+                      	<br>
+						<h3>Wholesale Login:</h3>
+                     		<h5>Username: "account"</h5>
+							<h5>Password: "account"</h5>
+							<br>
+						<h3>Admin Login:</h3>
+							<h5>Username: "admin"</h5>
+							<h5>Password: "admin"</h5>
+      			</div>
+      			<div class="modal-footer">		
+      			</div>
+    		</div>
+  		</div>
+	</div>
+  
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="acme-container">
@@ -59,12 +85,20 @@
                             </ul>
                         </li> 
                       </ul>
+                      
+                      <!-- Authentication login/logout interface -->
                       <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group search-group">
-                          <input type="text" class="form-control search-input" placeholder="Search">
-                          <button type="submit" class="btn btn-success btn-search"><i class="glyphicon glyphicon-search"></i></button>
-                        </div>
-                      </form>
+                    	<div class="form-group">
+                        <input type="text" class="form-control" id="username" placeholder="Username">&nbsp;
+                    	</div>
+                    	<div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="Password">&nbsp;&nbsp;&nbsp;
+                    	</div>
+                    		<button class="btn btn-success btn-large" id="login"><i class="glyphicon glyphicon-ok"></i></button>&nbsp;
+                      	<button class="btn btn-success btn-large" id="logout"><i class="glyphicon glyphicon-log-out"></i></button>&nbsp;&nbsp;
+                       <a href="#" data-toggle="modal" data-target="#myModal">Info</a> 
+                		 </form>
+                         
                     </div>
                     <!-- /.navbar-collapse -->
                   </div>
@@ -83,7 +117,7 @@
                   	 <div class="col-text">
                   		<h2>Healthy Choices</h2>
                   		<p class="lead">A new way to order your fresh produce!</p>
-                         </div>
+                      </div>
                    
 					<img src="img/seasonal-legend/seasonal-title.jpg" width="100%" height="100" alt="Seasonal" class="img-responsive"/> 
            
@@ -103,7 +137,7 @@
                   <h2 class="chart-header">Select bubbles to view individual products.</h2>
                   <div id="healthy-choices" class="chart-container"></div>
                   <table class="data-table" border="0" style="color:black;" width="100%" class="img-responsive">
-                  				<tr>
+                  	<tr>
 						<td height="350" width="4%" rowspan="3"></td>
 						<td height="350" width="31%" rowspan="3" valign="top"><span id="ImageLink"></span></td>
 						<td valign="bottom" width="65%" colspan="2" height="90">
@@ -113,7 +147,7 @@
 						<td valign="top" width="23%">Group:&nbsp;<b><span id="Group" style="font-family: sans-serif;"></span></b></td>
 						<td valign="top" width="42%">Price per Unit:&nbsp;<b><span id="Price" style="font-family: sans-serif;"></span></b></td>
 						</tr>
-                      				<tr>
+                      <tr>
 						<td valign="top" width="23%">Availability:&nbsp;<b><span style="font-family: sans-serif;" id="AvailSupply"></span></b></td>
 						<td valign="top" width="42%">Units Per Case:&nbsp;<b><span id="UnitsCase" style="font-family: sans-serif;"></span></b></td>
 						</tr>
