@@ -1,10 +1,80 @@
 		var masterReport;
+
+        var loggedInUser;
+
+        var usersObject = {"users": [
+            {"userName":"jasperadmin", "password":"jasperadmin", "roles":"Ext_User", "orgId":"organization_1", "expireTime":"blue", "region":"East", "level":"1"},
+            {"userName":"CaliforniaUser", "password":"CaliforniaUser", "roles":"Ext_User", "orgId":"organization_1", "expireTime":"blue", "region":"West", "level":"2"},
+            {"userName":"Sue", "password":"password", "roles":"Ext_Mgr", "orgId":"organization_1", "expireTime":"blue", "region":"North", "level":"3"},
+            {"userName":"Beth", "password":"password", "roles":"Ext_Mgr", "orgId":"organization_1", "expireTime":"blue", "region":"South", "level":"4"},
+            {"userName":"Pat", "password":"password", "roles":"Ext_User", "orgId":"organization_1", "expireTime":"blue", "region":"North", "level":"5"}
+            ]
+        };
 		
-        // Get my Client Object
-        visualize(function(v){
-            JRSClient = v;
-            initializeReports();
+        
+        $( document ).ready(function() {
+            console.log( "ready!" );
+
+            $( "#login" ).click(function() {
+                var un = $("#username").val();
+                var pw = $("#password").val();
+
+                $.each( usersObject, function( data ) {
+                    $.each(this,function(index,user){
+
+                        if (user.userName == un & user.password == pw ){
+                            //alert("your in");
+                            loggedInUser = user;
+
+                            visualize({
+                                auth: {
+                                    name: user.userName,
+                                    password: user.password
+                                }
+                            }, function (v) {
+
+                                //render report from provided resource
+                                v("#internal1").report({
+                                    resource: "/public/Samples/FreshDelivery_Demo/Internal1",
+                                    error: handleError
+                                });
+                                
+                                //show error
+                                function handleError(err){
+                                    alert(err.message);
+                                }
+
+                                $("#logout").click(function () {
+                                    v.logout().done(function () {
+                                        //alert("Destroy session");
+                                    });
+                                });
+
+                            });
+                        }
+                    })
+                });
+            });
+
+            // visualize({
+            // auth: {
+            //     name: "jasperadmin",
+            //     password: "jasperadmin",
+            //     organization: "organization_1"
+            // }
+            // },function(v){
+            //     JRSClient = v;
+            //     initializeReports();
+
+                
+
+            // });
         });
+
+
+
+        // Get my Client Object
+        
 
         function renderReportLink(uri, container, v) {
 			 
