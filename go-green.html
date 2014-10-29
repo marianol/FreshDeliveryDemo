@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Acme Fresh Delivery Foods</title>
     <meta name="description" content="Welcome to Acme Fresh Foods">
-    <meta name="author" content="Big Minnow">
+    <meta name="author" content="Jaspersoft">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!-- Google Font Arvo -->
-    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='css/fonts.css' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="css/acme.css" rel="stylesheet">
+    
+    <!-- JavaScript files
+    ================================================== -->
+    <script src="js/jquery.min.js"></script>  
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/require.js"></script>
+    <script src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
+    <script src="js/visualizeHelper.js"></script>
+    <script src="js/go-green.js"></script>
+    <script src="js/maps.js"></script>
+
   </head>
   <body>
     <div class="site-wrapper">
@@ -74,25 +86,28 @@
                 <div class="col-md-5 col-lg-5 col-xl-5 aux-col-green">
                   <img src="img/go-green-trees.jpg" width="100%" height="220" alt="Go Green!" class="img-responsive" />
                   	<div class="col-text">
-                  		<h2>Go Green!</h2>
-                  		<p class="lead">Environmentally friendly products in <b><span id="CityName1"></span>.</b></p>
-                         <p>(Select map to update location)</p>
+                  		<h1>Go Green!</h1>
+                  		<p class="lead">Environmentally friendly products in  - <b>&nbsp;<span style="font-size:26px" id="CityName1"></span></b></p>
+                         <br>
+                         <p style="font-size:16px">(Select map to update location)</p>
                   	</div>
                   <div id="GreenMap"></div>
 				  </div>
 				  <div style="background-color:#F0E6CC" class="col-md-7 main-col main-col-interior">
                   <div class="green-panel-heading">
-                      <h3 style="font-size: 20px; font-family: sans-serif; color: #3b5930; font-weight: bold;"><span id="CityName2"></span> Departments</h3>
+                      <h3 style="font-size: 26px; font-family: sans-serif; color: #3b5930; font-weight: bold;"><span id="CityName2"></span> Departments</h3>
                     </div>
                   <div class="chart-container">
                   	<div id="goGreenChart"></div>                  
                   </div>
                     <div class="green-panel-heading">
-                      <h3 style="font-size: 20px; font-family: sans-serif; color: #3b5930; font-weight: bold;"><span id="DepartmentName"></span></h3>
+                      <h3 style="font-size: 30px; font-family: sans-serif; color: #3b5930; font-weight: bold;"><span id="DepartmentName"></span></h3>
                     </div>
+                  <div id="placeholder" class="green-inline-dropdown"></div>&nbsp;&nbsp;
+                  <button id="ExportButton" style="float:center" class="btn btn-success btn-large green-btn-custom green-inline-dropdown">Export</button>
                   
                   <div style="background-color:#f0e6cd" sclass="chart-container">
-                  <button id="ExportButton" style="float:center">Export</button>
+                  <br>
                   <div style="background-color:#f0e6cd" id="goGreenTable"></div>
                   </div>
                 </div>
@@ -109,15 +124,3 @@
         </div>
       </div>
     </div>
-    
-        <!-- JavaScript files
-      ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="js/require.js"></script>
-    <script src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
-    <script src="js/visualizeHelper.js"></script>
-    <script src="js/go-green.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js"></script>

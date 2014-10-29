@@ -1,4 +1,4 @@
-	var masterReport;
+		var masterReport;
 		
         // Get my Client Object
         visualize(function(v){
@@ -12,7 +12,7 @@
                 resource: uri,
                 container: container,
 				
-		linkOptions: {
+				  linkOptions: {
                     events: {
                         "click"  : function(evt, link){
                             updateProduct(link.parameters.product_name, link.parameters.total_supply, link.parameters.product_group, link.parameters.price, link.parameters.total_units_case);
@@ -39,17 +39,17 @@
 			var parameters = {};
 			var productName2 = '';
 			parameters['product'] = [ productName ];
-            		switch (productName) {
-                    	case 'Ebony Beets':
+            switch (productName) {
+                    case 'Ebony Beets':
                         productName2 = 'Beets';
                         break;
-                    	case 'Ebony Canned Peanuts':
+                    case 'Ebony Canned Peanuts':
                         productName2 = 'Peanuts';
                         break;
 					  case 'Ebony Corn on the Cob':
                         productName2 = 'Corn on the Cob';
                         break;
-                	case 'Ebony Firm Tofu':
+                    case 'Ebony Firm Tofu':
                         productName2 = 'Firm Tofu';
                         break;
 					  case 'Ebony Honey Dew':
@@ -58,13 +58,13 @@
 					  case 'Ebony New Potatos':
                         productName2 = 'New Potatoes';
                         break;
-                    	case 'Ebony Onions':
+                    case 'Ebony Onions':
                         productName2 = 'Onions';
                         break;
 					  case 'Ebony Party Nuts':
                         productName2 = 'Party Nuts';
                         break;
-                    	case 'Ebony Peaches':
+                    case 'Ebony Peaches':
                         productName2 = 'Peaches';
                         break;
 					  case 'Ebony Plums':
@@ -134,13 +134,13 @@
                         availSupply = 'N/A';
 			 }
 			 
-            $('#ImageLink').html('<img src="img/products/' + (productName) + '.jpg">');
+            $('#ImageLink').html('<img src="img/products/' + (productName) + '.jpg" height="280px">');
             $('#ProductName1').html(productName);
             $('#ProductNameSimple').html(productName2);
-	    $('#Group').html(productGroup);
-	    $('#AvailSupply').html(availSupply);
-	    $('#Price').html('$ ' + Number(productPrice).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
-	    $('#UnitsCase').html(unitsCase);
+			 $('#Group').html(productGroup);
+			 $('#AvailSupply').html(availSupply);
+			 $('#Price').html('$ ' + Number(productPrice).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
+			 $('#UnitsCase').html(unitsCase);
         };
 		
 		/*

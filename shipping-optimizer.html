@@ -5,18 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Acme Fresh Delivery Foods</title>
     <meta name="description" content="Welcome to Acme Fresh Foods">
-    <meta name="author" content="Big Minnow">
+    <meta name="author" content="Jaspersoft">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!-- Google Font Arvo -->
-    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='css/fonts.css' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
-    <link href="css/acme.css" rel="stylesheet">
+    <link href="css/acme.css" rel="stylesheet"> 
+
+	<!-- Core JavaScript
+	================================================== -->
+	<script src="js/jquery.min.js"></script>  
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/require.js"></script>
+	<script type='text/javascript' src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
+	<script src="js/visualizeHelper.js"></script>
+	<script type='text/javascript' src="js/shipping.js"></script>
+
   </head>
   <body>
-  	<div class="site-wrapper">
+    <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="acme-container">
           <!-- header -->
@@ -66,47 +76,35 @@
               </div>
             </div>
           </header>
-            
-          
-          <!-- shipping optimizer article -->
-          <a name="shipping-optimizer"  ></a>
-          <article class="shipping-optimizer interior-article">
+          <!-- heathy choices content -->
+          <a name="healthy-choices"  ></a>
+          <article class="healthy-choices interior-article">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-3 col-lg-3 col-xl-3 aux-col">
-                  <img src="img/interior-header-van.jpg" width="100%" height="220" alt="Go Green!" class="img-responsive" />
-                  <h2>Shipping Optimizer</h2>
-                  <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                  <p >Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-                  <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                  <img src="img/interior-header-produce.jpg" width="100%" height="220" alt="Healthy Choices" class="img-responsive" />
+                  	 <div class="col-text">
+                  		<h1>Shipping Optimizer</h1>
+                          <br>
+                  		<p class="lead">View instant details on product inventory to optimize your order today!</p>
+                      </div>
+                  <br><br>
+					<select id="mySelect" class="form-control shipping-select">
+    					<option>Select your view </option>
+					</select>
                 </div>
-                <div class="col-md-8 main-col main-col-interior">
-                  <div class="chart-container">
-                    <img src="img/shipping-otpimizer-product-entry.jpg" 
-                       alt="Product Entry" class="img-responsive" />                          
-                  </div>
-                  <div class="chart-container">
-                    <img src="img/shipping-optimizer-price-by-popularity.jpg" 
-                       alt="Price by Popularity" class="img-responsive" />                          
+                <div style="background-color:#FFF" class="col-md-9 main-col main-col-interior">
+                  <h2 class="chart-header shipping-header">Dynamically view FreshDeliverie's Inventory</h2>
+					<!-- My HTTP API Frame-->
+					<div id="adhoc"></div>
+                  <br>                    
                   </div>
                 </div>
               </div>
             </div>
           </article>
-          
-          <footer>
-            <div class="mastfoot">
-              <div class="inner">
-                <p>&copy; Acme Fresh Delivery Foods is not a real company, this is a demo website for <a href="http://jaspersoft.com" target="_blank">Jaspersoft</a>.</p>
-              </div>
-            </div>
-          </footer>
         </div>
       </div>
     </div>
-    <!-- Bootstrap core JavaScript
-      ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    

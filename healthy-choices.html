@@ -5,15 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Acme Fresh Delivery Foods</title>
     <meta name="description" content="Welcome to Acme Fresh Foods">
-    <meta name="author" content="Big Minnow">
+    <meta name="author" content="Jaspersoft">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!-- Google Font Arvo -->
-    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='css/fonts.css' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="css/acme.css" rel="stylesheet">
+    
+    <!-- Core JavaScript
+     ================================================== -->
+    <script src="js/jquery.min.js"></script>  
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/require.js"></script>
+  	<script type='text/javascript' src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
+	<script src="js/visualizeHelper.js"></script>
+	<script type='text/javascript' src="js/healthy-choices.js"></script>
+    
   </head>
   <body>
     <div class="site-wrapper">
@@ -74,10 +84,10 @@
                 <div class="col-md-3 col-lg-3 col-xl-3 aux-col">
                   <img src="img/interior-header-staff.jpg" width="100%" height="220" alt="Healthy Choices" class="img-responsive" />
                   	 <div class="col-text">
-                  		<h2>Healthy Choices</h2>
+                  		<h1>Healthy Choices</h1>
                   		<p class="lead">A new way to order your fresh produce!</p>
                       </div>
-                   
+                  <br>
 					<img src="img/seasonal-legend/seasonal-title.jpg" width="100%" height="100" alt="Seasonal" class="img-responsive"/> 
            
                   <img src="img/seasonal-legend/high-off.jpg" width="40%" height="100" style="float:left" alt="High" class="img-responsive" onmouseover="this.src='img/seasonal-legend/high-on2.jpg';" onmouseout="this.src='img/seasonal-legend/high-off.jpg';" onClick="passControls('SupplyTime', 1);"/>
@@ -94,23 +104,28 @@
                 </div>
                 <div style="background-color:#FFF" class="col-md-9 main-col main-col-interior">
                   <h2 class="chart-header">Select bubbles to view individual products.</h2>
+                  <br>
                   <div id="healthy-choices" class="chart-container"></div>
-                  <table class="data-table" border="0" style="color:black;" width="100%" class="img-responsive">
+                  <br>
+
+					<table class="data-table" border="0" cellpadding="4" style="color:black;" width="100%" class="img-responsive">
                   	<tr>
-						<td height="350" width="4%" rowspan="3"></td>
-						<td height="350" width="31%" rowspan="3" valign="top"><span id="ImageLink"></span></td>
-						<td valign="bottom" width="65%" colspan="2" height="90">
+						<td height="200" width="10%" rowspan="3"></td>
+						<td height="200" width="30%" rowspan="3" valign="top"><span id="ImageLink"></span></td>
+						<td valign="bottom" width="60%" colspan="2" height="110">
 						<h3><b><span id="ProductNameSimple"></span></b></h3></td>
 						</tr>
 						<tr>
-						<td valign="top" width="23%">Group:&nbsp;<b><span id="Group" style="font-family: sans-serif;"></span></b></td>
-						<td valign="top" width="42%">Price per Unit:&nbsp;<b><span id="Price" style="font-family: sans-serif;"></span></b></td>
+						<td valign="middle" width="22%"><h4>Group:&nbsp;<b><span id="Group" style="font-family: sans-serif;"></span></b></h4></td>
+						<td valign="middle" width="33%"><h4>Price per Unit:&nbsp;<b><span id="Price" style="font-family: sans-serif;"></span></b></h4></td>
 						</tr>
                       <tr>
-						<td valign="top" width="23%">Availability:&nbsp;<b><span style="font-family: sans-serif;" id="AvailSupply"></span></b></td>
-						<td valign="top" width="42%">Units Per Case:&nbsp;<b><span id="UnitsCase" style="font-family: sans-serif;"></span></b></td>
+						<td valign="top" width="22%"><h4>Availability:&nbsp;<b><span style="font-family: sans-serif;" id="AvailSupply"></span></b></h4></td>
+						<td valign="top" width="33%"><h4>Units Per Case:&nbsp;<b><span id="UnitsCase" style="font-family: sans-serif;"></span></b></h4></td>
 						</tr>
 					</table>
+                  <br>
+                                        
                   </div>
                 </div>
               </div>
@@ -126,12 +141,3 @@
         </div>
       </div>
     </div>
-    <!-- Core JavaScript
-     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<script src="js/require.js"></script>
-  	<script type='text/javascript' src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
-	<script src="js/visualizeHelper.js"></script>
-	<script type='text/javascript' src="js/healthy-choices.js"></script>

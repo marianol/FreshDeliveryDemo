@@ -31,6 +31,44 @@ var defDepartment = 'Produce';
 visualize(function(v){
     JRSClient = v;
     initializeReports();
+	 
+	 var $select = buildControl("Export to:   ", v.report.exportFormats)
+			 
+		 $button.click(function () {
+			console.log($select.val());
+			slaveReport.export({
+				//export options here
+				outputFormat: $select.val(),
+				//exports all pages if not specified
+				//pages: "1-2"
+			}, function (link) {
+				var url = link.href ? link.href : link;
+				window.location.href = url;
+			}, function (error) {
+				console.log(error);
+			});
+		});
+			
+		function buildControl(name, options) {
+			
+			function buildOptions(options) {
+				var template = "<option>{value}</option>";
+				return options.reduce(function (memo, option) {
+					return memo + template.replace("{value}", option);
+				}, "")
+			}
+			
+			var template = "<label>{label}&nbsp;</label><select>{options}</select>",
+				content = template.replace("{label}", name)
+					.replace("{options}", buildOptions(options));
+					
+			var $control = $(content);
+			$control.insertBefore($("#placeholder"));
+			//return select
+			return $($control[1]);
+		}	
+	
+	
 });
 
 function renderMapReportLink(uri, container, v) {
@@ -51,7 +89,7 @@ function renderMapReportLink(uri, container, v) {
     }
 
     function renderReportLink(uri, container, v) {
-        return v.report({
+        	 return v.report({
             resource: uri,
             container: container,
             linkOptions: {
@@ -61,6 +99,9 @@ function renderMapReportLink(uri, container, v) {
                     }
                 }
             },
+			 success: function () {
+				 button.removeAttribute("disabled");
+			 },
             error: function(err) {
                 console.log(err.message);
             }
@@ -68,20 +109,21 @@ function renderMapReportLink(uri, container, v) {
     }
 
     function initializeReports() {
+		
         var master = '/public/Samples/FreshDelivery_Demo/21.5GoGreenChart';
         var slave = '/public/Samples/FreshDelivery_Demo/21.6GoGreenTable';
         var map = '/public/Samples/FreshDelivery_Demo/21.7GoGreenMap';
-
+		 $button = $("#ExportButton");
+	 	 
         $('#DepartmentName').html(defDepartment);
         $('#CityName1').html(defCity);
         $('#CityName2').html(defCity);
+		
         mapReport = renderMapReportLink(map, '#GreenMap', JRSClient);
         masterReport = renderReportLink(master, '#goGreenChart', JRSClient);
-        slaveReport = renderReport(slave, '#goGreenTable', JRSClient);
-        // updateTable('Produce');
-        // changeChartCity('San Diego');
-    }
-
+		 slaveReport = renderReportLink(slave, '#goGreenTable', JRSClient);
+	}
+		
     // Update Slave report with the passed Department parameter
     function updateTable(departmentName) {
         var parameters = {};
