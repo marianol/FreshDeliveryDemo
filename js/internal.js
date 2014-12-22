@@ -35,7 +35,7 @@
 
                                 //render report from provided resource
                                 v("#internal1").report({
-                                    resource: "/public/Samples/FreshDelivery_Demo/Internal1",
+                                    resource: "/public/Samples/FreshDelivery_Demo/FreshDelivery_Internal_Report",
                                     error: handleError
                                 });
                                 

@@ -23,6 +23,8 @@
 	<script src="js/require.js"></script>
 	<script type='text/javascript' src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
 	<script src="js/visualizeHelper.js"></script>
+	<script src="http://build-master.jaspersoft.com:5980/jrs-pro-trunk/client/visualize.js"></script>
+	<script src="js/admin.js"></script>
 
   </head>
   <body>
@@ -46,13 +48,13 @@
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                      <ul class="nav navbar-nav control-dropdown">
+                      <ul class="nav navbar-nav">
                         <li><a href="index.html">Home</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                               Current Reports <span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu control-dropdown">
+                            <ul class="dropdown-menu">
                                 <li><a href="top-sellers.html">Top Sellers</a></li>
                                 <li><a href="healthy-choices.html">Healthy Choices</a></li>
                                 <li><a href="go-green.html">Go Green</a></li>
@@ -62,7 +64,7 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                               Tools <span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu control-dropdown">
+                            <ul class="dropdown-menu">
                                 <li><a href="shipping-optimizer.html">Shipping Optimizer</a></li>
                                 <li><a href="internal.html">Internal</a></li>
                                 <li><a href="admin.html">Admin Dashboards</a></li>
@@ -103,45 +105,20 @@
                           <br>
                   		<p class="lead">View up to date internal metrics</p>
                       </div>
-                  <br><br>
-                  
-                  
-					<!-- <select id="toggle" class="form-control admin-select">
-                    <option>&nbsp;&nbsp;&nbsp;Sales </option>
-                    <option>&nbsp;&nbsp;&nbsp;Inventory </option>
-                    <option>&nbsp;&nbsp;&nbsp;Expenses </option> 
-					</select> -->
+                  <br> 
                      
-                  <ul id="toggle" class="nav nav-pills nav-pills-custom-minimal admin-nav">       
-						<li><a>SALES</a></li>
-						<li><a>INVENTORY</a></li>
-                      <li><a>EXPENSES</a></li>
-					</ul>
+                    <br/>
+                    <div class="input"></div> 
+                    <br/>
+					<button class="btn btn-success btn-large green-btn-custom admin-btn" disabled>Update</button>
+					<br/><br/>
 
                 </div>
                 <div style="background-color:#FFF" class="col-md-10 main-col main-col-interior">
-                  <h2 class="chart-header shipping-header">Dynamically view FreshDeliveries Internal Metrics</h2>
                   
-<!-- My HTTP API Frames-->
-<div id="sales">
-<!--<img src="img/dashboards/sales-dashboard.jpg" height="720"> -->
-<iframe align="middle" frameborder="0" height="900" hspace="0" marginheight="10" marginwidth="10 scrolling="no" src="http://localhost:8080/jasperserver-pro/dashboard/viewer.html#%2Fpublic%2FSamples%2FDashboards%2F3.1_Sales_Metrics" vspace="0" width="99%"></iframe>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-</div>
-    
-<div id="inventory">
-
-<iframe align="middle" frameborder="0" height="900" hspace="0" marginheight="10" marginwidth="10 scrolling="no" src="http://localhost:8080/jasperserver-pro/dashboard/viewer.html#%2Fpublic%2FSamples%2FDashboards%2F3.2_Inventory_Metrics" vspace="0" width="99%"></iframe>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-</div>
-
-<div id="expenses">
-<!-- <img src="img/dashboards/expenses-dashboard.jpg" height="720"> -->
-<iframe align="middle" frameborder="0" height="900" hspace="0" marginheight="10" marginwidth="10 scrolling="no" src="http://localhost:8080/jasperserver-pro/dashboard/viewer.html#%2Fpublic%2FSamples%2FDashboards%2F3.3_Expense_Metrics" vspace="0" width="99%"></iframe>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-</div>
-                    
-                                     
+					<!-- Visualize.js embedded dashboard -->
+					<div id="container"></div>
+              
                   </div>
                 </div>
               </div>
@@ -151,15 +128,3 @@
       </div>
     </div>
     
-    
-    
- <!--Javascript to toggle views on dropdown -->
-    <script>                                
-	$('#toggle > li').click(function() {
-    var ix = $(this).index();
-    
-    $('#sales').toggle( ix === 0 );
-    $('#inventory').toggle( ix === 1 );
-	$('#expenses').toggle( ix === 2 );
-	});
-	</script>

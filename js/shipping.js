@@ -4,7 +4,7 @@
  *
  * ========================================================================
  * Copyright 2014
- * Author: Mariano Luna
+ * Authors: Daniel Petzold, Mariano Luna
  *
  * Unless you have purchased a commercial license agreement from Jaspersoft Inc., the following license terms apply:
  *
@@ -74,8 +74,8 @@ visualize({
     $('<iframe>', {
        src: 'http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=library',
        id:  'myFrame',
-        width: 1400,
-        height: 916,
+        width: 1160,
+        height: 625,
        frameborder: 0,
        scrolling: 'no'
    }).appendTo('#adhoc');

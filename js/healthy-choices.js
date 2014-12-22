@@ -134,7 +134,7 @@
                         availSupply = 'N/A';
 			 }
 			 
-            $('#ImageLink').html('<img src="img/products/' + (productName) + '.jpg" height="280px">');
+            $('#ImageLink').html('<img src="img/products/' + (productName) + '.jpg" height="200px">');
             $('#ProductName1').html(productName);
             $('#ProductNameSimple').html(productName2);
 			 $('#Group').html(productGroup);

@@ -136,7 +136,7 @@ article.home .main-col {
     background-image:url('../img/acme-foods-truck.jpg');
     background-repeat: no-repeat;
     background-color:#668238;
-    min-height:1000px;
+    max-height:800px;
 }
 
 /*
@@ -168,10 +168,11 @@ article.home .main-col {
  * Main Column
  */
 .main-col {
-    padding:0px;
-    padding-top:10px;
-    padding-bottom:10px;
-	float: left;
+	padding:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /*
@@ -180,17 +181,17 @@ article.home .main-col {
 .main-col div.headline
 {
     padding-left:10px;
-    padding-bottom:10px;
+    padding-bottom:50px;
     padding-right:20px;
-	margin-right:100px;
-	margin-left:100px;
+	margin-right:80px;
+	margin-left:80px;
     background-color: #F8AE3C;
     background-image: url("../img/glyph-farm-fresh.png");
     background-position: 95% 5px;
     background-repeat: no-repeat;
     border:2px solid #9FA617;
     display:block;
-    height:60px;
+    height:48px;
 }
 .main-col div.headline h3
 {
@@ -208,6 +209,9 @@ article.home .main-col {
 .col-top-sellers {
 	background-color:#F9F9F9;
 	min-height: 700px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /*
@@ -220,6 +224,13 @@ article.home .main-col {
   text-align: left;
 }
 
+.admin-sidebar {
+  background-color:#668238;
+  padding:15px;
+  margin-top:10px;
+  text-align: left;
+}
+
 .aux-col-green {
   background-color:#668238;
   padding:20px;
@@ -227,6 +238,9 @@ article.home .main-col {
   text-align: left;
 }
 
+.control-dropdown {
+	font-size:18px;	
+}
 
 /*
  * Aux Row
@@ -250,8 +264,8 @@ article.home .main-col {
 }
 .aux-row div div.feature {
   background-color:#8FCD9B;
-  padding:10px;
-  min-height: 400px;
+  padding:1px;
+  min-height: 320px;
 }
 .aux-row div div.feature-first {
   background-color:#BCA065;
@@ -301,14 +315,14 @@ article.home .main-col {
 
 
 /* Headline */
-h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
+h1.lead { text-transform: uppercase; font-size:40px;font-weight: 700;
  text-shadow: 3px 2px 5px #092E05; margin-top:0px; line-height: 54px;  }
 
 @media (min-width: 700px) {
   h1.lead {  margin-top:20px;  }
 }
 @media (min-width: 1400px) {
-  h1.lead { margin-top:90px;  }
+  h1.lead { margin-top:0px;  }
 }
 
 /*
@@ -337,10 +351,14 @@ h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
 /*
  * Aux Col Headlines and Features
  */
-.aux-col h2.lead { color:#FEFBE8; text-transform: uppercase; font-size:18px;font-weight: normal;font-family:helvetica,arial,sans-serif;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5); letter-spacing: 1px;text-align:center;margin:0px;}
+.aux-col h2.lead { color:#FEFBE8; text-transform: uppercase; font-size:12px;font-weight: normal;font-family:helvetica,arial,sans-serif;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5); letter-spacing: 1px;text-align:center;margin-top:4px;margin-bottom:10px;}
+  
+.aux-col p.lead { font-size:16px;}
 
-.aux-col div.feature { padding:20px; padding-top:0px; padding-bottom:10px; background-color:#365A35; min-height:105px; margin-top:5px; }
+.green-lead { font-size:20px;}
+
+.aux-col div.feature { padding-left:25px; padding-right:20px; padding-top:0px; padding-bottom:10px; background-color:#365A35; min-height:105px; margin-top:5px; }
 .aux-col div.feature h3 {
   text-align: left; color:#FEFBE8; padding-top:10px;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
@@ -364,19 +382,18 @@ h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
 .chart-header {
   text-align: left;
   font-family: Arial, Verdana, sans-serif;
-  font-size: 22px;
+  font-size: 17px;
   font-weight: bold;
   color: #5c5d5f;
   background-color: #e0e1e3;
   margin: 15px 15px 15px 15px;
-  padding: 14px 0px 16px 22px;
+  padding: 10px 0px 10px 22px;
 }
 
-.main-col .chart-container {
-    margin:4px;
-	float:left;
+.chart-container {
 	color: #000;
 }
+
 .icon-glyph {
     float:right;
     margin-right:10px;
@@ -393,10 +410,15 @@ h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
  * Aux Row Headlines and Features
  */
 .aux-row div div.feature h3 {
-  font-size:22px;
+  font-size:18px;
   text-transform:uppercase;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
+
+.aux-row div div.feature p {
+  font-size:13px;
+}
+
 .aux-row div div.feature img {
   margin-bottom:-10px;
 }
@@ -418,17 +440,17 @@ h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
 }
 
 .data-table td {
-	padding: 8px;
+	padding: 0px;
 }
 
 .data-table h3 {
-	font-size:40px;
+	font-size:35px;
 	color:#666;
 	display:inline;
 }
 
 .data-table h4 {
-	font-size:22px;
+	font-size:18px;
 	color:#666;
 	display:inline;
 }
@@ -447,6 +469,11 @@ h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
 	border-bottom:1px solid transparent;
 	border-top-right-radius:3px;
 	border-top-left-radius:3px;
+}
+
+.top-panel-heading {
+	padding:0px;
+	margin-top:5px;
 }
 
 .col-text {
@@ -479,10 +506,18 @@ h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
   color: #fff !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.36);
   -webkit-font-smoothing: antialiased;
-  height: 26px;
+  height: 24px;
   padding-top: 0px;
   margin-bottom: 0px;
-  font-size:16px;
+  font-size:14px;
+}
+
+.admin-btn   {
+  align: center;
+  height: 30px;
+  padding-top: 1px;
+  font-size:18px;
+  margin-left:8px;
 }
 
 .green-inline-dropdown {
@@ -490,15 +525,29 @@ h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
 }
 
 .shipping-select {
-	width: 70%;
+	width: 90%;
 	background-color:#719737;
 	color: #fff;
-	font-size:22px;
+	font-size:16px;
 	height:52px;
 	border-color: #57713b;
 	border:none;
     outline:none;
-	padding:20px;
+	padding:0px;
+}
+
+.admin-select {
+	width: 87%;
+	background-color:#719737;
+	color: #fff;
+	font-size:15px;
+	height:46px;
+	border-color: #57713b;
+	border:none;
+    outline:none;
+	padding:2px;
+	margin-left:5px;
+	margin-bottom:5px;
 }
 
 .internal {
@@ -516,4 +565,26 @@ h1.lead { text-transform: uppercase; font-size:52px;font-weight: 700;
 	margin: 12px 10px 12px 10px;
 	padding: 8px 0px 0px 20px;
 	height:36px;
+}
+
+.admin-nav a {
+	
+	font-size:14px;
+	color: #E2F0D0;
+	margin-top:5px;
+}
+
+.admin-nav a:hover  {
+	
+	color: #063;
+}
+
+.no-margin-padding {
+	padding: 0px;
+	margin: 0px;
+}
+
+#container {
+    height: 690px;
+    padding: 6px;
 }

@@ -1,10 +1,10 @@
 /*
  * ========================================================================
- * shipping.js : v0.8.0
+ * admin.js : v0.8.0
  *
  * ========================================================================
  * Copyright 2014
- * Authors: Daniel Petzold, Mariano Luna
+ * Authors: Daniel Petzold
  *
  * Unless you have purchased a commercial license agreement from Jaspersoft Inc., the following license terms apply:
  *
@@ -22,65 +22,58 @@
  */
 
 
-$(document).ready(function(){
-    var viewlist = { 
-     "pages" : [
-	 {
-     "label" : "Sales",
-     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=library"
-     },  
-     {
-     "label" : "Inventory",
-     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=adhocFlow"
-     },
-     {
-     "label" : "Expenses",
-     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=search&filterId=resourceTypeFilter&filterOption=resourceTypeFilter-reports"
-     },
-	 {
-     "label" : "Home",
-     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=homeFlow"
-     } 
-         
-     ]
-    };
-    
-    var menu = viewlist.pages;
-    var length = menu.length;
-    
-    for(var j = 0; j < length; j++)
-    {
-        $('#mySelect').append($("<option/>", {
-            value: menu[j].url ,
-            text: menu[j].label
-        }));
-    }
-    $("#mySelect" ).change(function() {
-            $("#myFrame").attr("src", $("#mySelect").val());  
-            console.log("myFrame changed to: " + $( "#mySelect" ).val());
-        });
- 
-});
+
+
+function handleError(e) {
+    alert(e);
+}
 
 visualize({
     auth: {
-        name: "jasperadmin",
-        password: "jasperadmin",
-        organization: "organization_1"
+        name: "superuser",
+        password: "superuser"
     }
 }, function (v) {
-    console.log("Viz - login");    
-    // Load the Repo seach by default..
-    $('<iframe>', {
-       src: 'http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=library',
-       id:  'myFrame',
-        width: 1400,
-        height: 916,
-       frameborder: 0,
-       scrolling: 'no'
-   }).appendTo('#adhoc');
-
-    console.log("Iframe loaded with: " + document.getElementById('myFrame').src ); 
+    var initialParams = {
+        Country: ["USA", "Canada", "Mexico"]
+    };
     
+    var dashboard = v.dashboard({
+        resource: "/public/Samples/FreshDelivery_Demo/Admin_Inventory_Dashboard",
+        container: "#container",
+        error: handleError,
+        params: initialParams,
+        success: function() {
+            $("button").prop("disabled", false);
+            buildParamsInput();
+        }
+    });
+    
+    function buildParamsInput() {
+        var params = dashboard.data().parameters;
+
+        for (var i = params.length-1; i >= 0; i--) {
+            var $el = $("<div><select type='select' class='form-control admin-select' data-paramId='" + params[i].id + "'><option value='all'>ALL COUNTRIES</option><option value='USA'>USA</option><option value='Canada'>Canada</option><option value='Mexico'>Mexico</option></select></div>");
+            
+            $(".input").prepend($el);
+            
+            $el.find("input").val(dashboard.params()[params[i].id]);
+        }
+    }
+    
+    $("button").on("click", function() {
+        var params = {};
+        
+        $("[data-paramId]").each(function() {
+            params[$(this).attr("data-paramId")] = $(this).val().indexOf("[") > -1 ? JSON.parse($(this).val()) : [$(this).val()];    
+        });
+        
+        $("button").prop("disabled", true);
+        
+        dashboard.params(params).run()
+            .fail(handleError)
+            .always(function() { $("button").prop("disabled", false); });
+    });
 });
+
 
