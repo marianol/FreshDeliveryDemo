@@ -25,14 +25,14 @@
 $(document).ready(function(){
     var viewlist = { 
      "pages" : [
+     {
+     "label" : "Create Adhoc",
+     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=adhocFlow&resource=/public/Samples/FreshDelivery_Demo/New_Admin_Ad_Hoc_View"
+     },
 	 {
      "label" : "Library",
      "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=library"
      },  
-     {
-     "label" : "Create Adhoc",
-     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=adhocFlow"
-     },
      {
      "label" : "Report List",
      "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=search&filterId=resourceTypeFilter&filterOption=resourceTypeFilter-reports"
@@ -72,10 +72,10 @@ visualize({
     console.log("Viz - login");    
     // Load the Repo seach by default..
     $('<iframe>', {
-       src: 'http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=library',
+       src: 'http://localhost:8080/jasperserver-pro/flow.html?_flowId=adhocFlow&resource=/public/Samples/FreshDelivery_Demo/New_Admin_Ad_Hoc_View',
        id:  'myFrame',
         width: 1160,
-        height: 625,
+        height: 600,
        frameborder: 0,
        scrolling: 'no'
    }).appendTo('#adhoc');

@@ -13,23 +13,21 @@
     <!-- Google Font Arvo -->
     <link href='css/fonts.css' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
-    <link href="css/acme.css" rel="stylesheet">
+    <link href="css/acme.css" rel="stylesheet"> 
 
-	<!-- Core JavaScript
-	================================================== -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/require.js"></script>
-	<script src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
-	<script src="js/visualizeHelper.js"></script>
-	<script src="js/admin.js"></script>
-	<!-- <script type='text/javascript' src="js/internal.js"></script> -->
-	
-	//Invisible form used to convert url into text for authentication
+	  <!-- Core JavaScript
+  ================================================== -->
+  <script src="js/jquery.min.js"></script>  
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/require.js"></script>
+  <script type='text/javascript' src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
+  <script src="js/visualizeHelper.js"></script>
+  <script type='text/javascript' src="js/brand-control.js"></script>
+  
+  //Invisible form used to convert url into text for authentication
 	<FORM NAME="convert">
 	<INPUT TYPE="hidden" NAME="myurl">
 	</FORM>
-	
 	
 	//Get username passed from last url
 	<script>
@@ -63,12 +61,12 @@
 	var shippingurl = 'shipping-optimizer.html?u='+username+'&p='+password;
 	var adminurl = 'admin.html?u='+username+'&p='+password;
 	</script>
-	
-  	</head>
-  	<body>
+
+  </head>
+  <body>
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
-        <div class="acme-container-admin">
+        <div class="acme-container-siteadmin">
           <!-- header -->
           <header>
             <div class="masthead clearfix">
@@ -125,40 +123,54 @@
               </div>
             </div>
           </header>
-          <!-- heathy choices content -->
-          <a name="healthy-choices"  ></a>
-          <article class="healthy-choices interior-article">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-2 col-lg-2 col-xl-2 aux-col admin-sidebar">
-                  <img src="img/admin-logo.jpg" width="100%" height="250" alt="Healthy Choices" class="img-responsive" />
-
-                  	 <div class="col-text">
-                  		<h1>Inventory View</h1>          		
-                          <br>
-                  		<p class="lead">View up to date internal metrics</p>
-                      </div>
-                  <br> 
-                     
-                    <br/>
-                    <div class="input"></div> 
-                    <br/>
-					<button class="btn btn-success btn-large green-btn-custom admin-btn" disabled>Update</button>
-					<br/><br/>
-
-                </div>
-                <div style="background-color:#FFF" class="col-md-10 main-col main-col-interior">
+            
+			<!-- top sellers content -->
+			<a name="top-sellers"  ></a>
+			<article class="top-sellers interior-article">
+			  <div class="container-fluid">
+				  <div class="row">
+					  <div class="col-md-3 col-lg-3 col-xl-3 aux-col">
+                  	  <img src="img/interior-header-food-isle.jpg" width="100%" height="220" alt="Top Sellers" class="img-responsive" />
+								<div class="col-text">  
+                      			<h2>Top Sellers</h2>
+                  	  			<p class="lead">Explore our top selling brands by selecting from the brand bars.</p>
+                                <br>
+                  	  			<p class="lead">You can also see the top ten products on any brand by selecting below.</p>
+                      		</div>
+                            
+                            <img src="img/top-ten-off.jpg" width="100%" height="100" alt="All" class="img-responsive" onmouseover="this.src='img/top-ten-on.jpg';" onmouseout="this.src='img/top-ten-off.jpg';" onClick="topTen();"/>
                   
-					<!-- Visualize.js embedded dashboard -->
-					<div id="container" class="dashboard-container"></div>
-              
+                   		   <img src="img/all-off.jpg" width="100%" height="100" alt="All" class="img-responsive" onmouseover="this.src='img/all-on.jpg';" onmouseout="this.src='img/all-off.jpg';" onClick="resetControls();"/>
+					  
+                    </div>
+                
+                    <div class="col-md-8 main-col col-top-sellers">
+					  
+						<h2 class="chart-header-top-admin">Select the brand bars to update the product listing below</h2>
+                        
+                        
+               		<div id="brands" class="chart-container top-seller" align="center"></div>
+               		<div id="products" class="chart-container top-seller" align="center"></div>
+                        
+                        
+               		<div class="panel-heading top-panel-heading">
+							<h3 class="top-panel-heading" style="font-size: 18px; font-family: sans-serif; color: #4b7094; font-weight: bold;">
+               		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="Label"></span> (<span id="BrandName1"></span>)</h3>
+                      <br><br>  
+						</div>  
+					  </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+				 </div>
+			  </article>
+          
+			  <footer>
+			    <div class="mastfoot">
+				  <div class="inner">
+				  <p>&copy; Acme Fresh Delivery Foods is not a real company, this is a demo website for <a href="http://jaspersoft.com" target="_blank">Jaspersoft</a>.</p>
+				  </div>
+				</div>
+			  </footer>
+              
+		  </div>
+	  </div>
+  </div>

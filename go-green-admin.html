@@ -14,22 +14,22 @@
     <link href='css/fonts.css' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="css/acme.css" rel="stylesheet">
-
-	<!-- Core JavaScript
-	================================================== -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/require.js"></script>
-	<script src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
-	<script src="js/visualizeHelper.js"></script>
-	<script src="js/admin.js"></script>
-	<!-- <script type='text/javascript' src="js/internal.js"></script> -->
-	
-	//Invisible form used to convert url into text for authentication
+    
+    <!-- JavaScript files
+    ================================================== -->
+    <script src="js/jquery.min.js"></script>  
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/require.js"></script>
+    <script src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
+    <script src="js/visualizeHelper.js"></script>
+    <script src="js/go-green.js"></script>
+    <script src="js/maps.js"></script>
+    
+    //Invisible form used to convert url into text for authentication
 	<FORM NAME="convert">
 	<INPUT TYPE="hidden" NAME="myurl">
 	</FORM>
-	
 	
 	//Get username passed from last url
 	<script>
@@ -63,12 +63,12 @@
 	var shippingurl = 'shipping-optimizer.html?u='+username+'&p='+password;
 	var adminurl = 'admin.html?u='+username+'&p='+password;
 	</script>
-	
-  	</head>
-  	<body>
+
+  </head>
+  <body>
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
-        <div class="acme-container-admin">
+        <div class="acme-container-siteadmin">
           <!-- header -->
           <header>
             <div class="masthead clearfix">
@@ -125,40 +125,49 @@
               </div>
             </div>
           </header>
-          <!-- heathy choices content -->
-          <a name="healthy-choices"  ></a>
-          <article class="healthy-choices interior-article">
+          <!-- go green article -->
+          <a name="go-green" ></a>
+          <article class="go-green interior-article">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-md-2 col-lg-2 col-xl-2 aux-col admin-sidebar">
-                  <img src="img/admin-logo.jpg" width="100%" height="250" alt="Healthy Choices" class="img-responsive" />
-
-                  	 <div class="col-text">
-                  		<h1>Inventory View</h1>          		
-                          <br>
-                  		<p class="lead">View up to date internal metrics</p>
-                      </div>
-                  <br> 
-                     
-                    <br/>
-                    <div class="input"></div> 
-                    <br/>
-					<button class="btn btn-success btn-large green-btn-custom admin-btn" disabled>Update</button>
-					<br/><br/>
-
-                </div>
-                <div style="background-color:#FFF" class="col-md-10 main-col main-col-interior">
+                <div class="col-md-5 col-lg-5 col-xl-5 aux-col-green">
+                  <img src="img/go-green-trees.jpg" width="100%" height="220" alt="Go Green!" class="img-responsive" />
+                  	<div class="col-text">
+                  		<h2>Go Green!</h2>
+                  		<p class="lead green-lead">Environmentally friendly products in  - <b>&nbsp;<span style="font-size:22px" id="CityName1"></span></b></p>
+                         <br>
+                         <p style="font-size:16px">(Select map to update location)</p>
+                  	</div>
+                  <div id="GreenMap"></div>
+				  </div>
+				  <div style="background-color:#F0E6CC" class="col-md-7 main-col main-col-interior">
+                  <div class="green-panel-heading">
+                      <h3 style="font-size: 20px; font-family: sans-serif; color: #3b5930; font-weight: bold;"><span id="CityName2"></span> Departments</h3>
+                    </div>
+                  <div class="chart-container">
+                  	<div id="goGreenChart" align="center"></div>                  
+                  </div>
+                    <div class="green-panel-heading">
+                      <h3 style="font-size: 24px; font-family: sans-serif; color: #3b5930; font-weight: bold;"><span id="DepartmentName"></span></h3>
+                    </div>
+                  <div id="placeholder" class="green-inline-dropdown"></div>&nbsp;&nbsp;
+                  <button id="ExportButton" style="float:center" class="btn btn-success btn-large green-btn-custom green-inline-dropdown">Export</button>
                   
-					<!-- Visualize.js embedded dashboard -->
-					<div id="container" class="dashboard-container"></div>
-              
+                  <div style="background-color:#f0e6cd" sclass="chart-container">
+                  <br>
+                  <div style="background-color:#f0e6cd" id="goGreenTable" align="center"></div>
                   </div>
                 </div>
               </div>
             </div>
           </article>
+          <footer>
+            <div class="mastfoot">
+              <div class="inner">
+                <p>&copy; Acme Fresh Delivery Foods is not a real company, this is a demo website for <a href="http://jaspersoft.com" target="_blank">Jaspersoft</a>.</p>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
     </div>
-  </body>
-</html>

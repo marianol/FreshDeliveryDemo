@@ -17,13 +17,53 @@
 
 	<!-- Core JavaScript
 	================================================== -->
-  <script src="js/jquery.min.js"></script>  
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/require.js"></script>
-  <script type='text/javascript' src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
-  <script src="js/visualizeHelper.js"></script>
-  <script type='text/javascript' src="js/internal.js"></script>
+	<script src="js/jquery.min.js"></script>  
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/require.js"></script>
+	<script type='text/javascript' src="http://localhost:8080/jasperserver-pro/client/visualize.js"></script>
+	<script src="js/visualizeHelper.js"></script>
+	
+	<script type='text/javascript' src="js/internal.js"></script>
+	
+	//Invisible form used to convert url into text for authentication
+	<FORM NAME="convert">
+	<INPUT TYPE="hidden" NAME="myurl">
+	</FORM>
+	
+	
+	//Get username passed from last url
+	<script>
+	var locate = window.location
+	document.convert.myurl.value = locate
 
+	var text = document.convert.myurl.value
+	
+	function delineate(str){
+		theleft = str.indexOf("=") + 1;
+		theright = str.lastIndexOf("&");
+		return(str.substring(theleft, theright));
+	}
+	var username = delineate(text)
+	
+	//Get password passed from last url
+	function delineate2(str)
+	{
+		point = str.lastIndexOf("=");
+		return(str.substring(point+1,str.length));
+	}
+	
+	var password = delineate2(text)
+	
+	//Menu variables
+	var homeurl = 'index-admin.html?u='+username+'&p='+password;
+	var topurl = 'top-sellers-admin.html?u='+username+'&p='+password;
+	var healthyurl = 'healthy-choices-admin.html?u='+username+'&p='+password;
+	var greenurl = 'go-green-admin.html?u='+username+'&p='+password;
+	var internalurl = 'internal.html?u='+username+'&p='+password;
+	var shippingurl = 'shipping-optimizer.html?u='+username+'&p='+password;
+	var adminurl = 'admin.html?u='+username+'&p='+password;
+	</script>
+	
   </head>
   <body>
   <!-- Login Authentication Help Modal -->
@@ -32,19 +72,34 @@
     		<div class="modal-content">
       			<div class="modal-header">
         			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span 	class="sr-only">Close</span></button>
-        			<h3 class="modal-title" id="myModalLabel" style="color:#355B33">Authentication Information</h3>
+        			<h3 class="modal-title" id="myModalLabel" style="color:#355B33">Administrator / Manager Login</h3>
       			</div>
       			<div class="modal-body">
-  						<h3>General Visitor:</h3>
-							<h4>(No Access to reports)</h4>
-                      	<br>
-						<h3>Manager Login: (California User):</h3>
-                     		<h4>Username: "CaliforniaUser"</h4>
-							<h4>Password: "CaliforniaUser"</h4>
+      			
+      			 <!-- Authentication login/logout interface -->
+      			 		<div>
+                			<form class="navbar-form navbar-right">
+                    			<div class="form-group">
+                        			<input type="text" name="u" class="form-control" id="username" placeholder="Username">&nbsp;&nbsp;
+                    			</div>
+                    			<div class="form-group">
+                        			<input type="password" name="p" class="form-control" id="password" placeholder="Password">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    			</div>
+                    		
+                      		<button class="btn btn-success btn-large" id="login">Login</button>&nbsp;&nbsp;&nbsp;
+                      		<button class="btn btn-success btn-large" onclick="document.location='internal.html';" id="logout">Logout</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                			</form>
+  						</div>
+                      	<br><br><br><br>
+                      	<div>
+						<h4>Manager Login: (California):</h4>
+                     		<h6>Username: "CaliforniaUser"</h6>
+							<h6>Password: "CaliforniaUser"</h6>
 							<br>
-						<h3>Admin Login:</h3>
-							<h4>Username: "jasperadmin"</h4>
-							<h4>Password: "jasperadmin"</h4>
+						<h4>Admin Login:</h4>
+							<h6>Username: "jasperadmin"</h6>
+							<h6>Password: "jasperadmin"</h6>
+						</div>
       			</div>
       			<div class="modal-footer">
       			</div>
@@ -54,7 +109,7 @@
   
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
-        <div class="acme-container">
+        <div class="acme-container-admin">
           <!-- header -->
           <header>
             <div class="masthead clearfix">
@@ -73,41 +128,36 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a onclick="document.location= homeurl;" style="cursor: pointer;">Home</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                              Current Reports <span class="caret"></span>
+                              Our Products <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="top-sellers.html">Top Sellers</a></li>
-                                <li><a href="healthy-choices.html">Healthy Choices</a></li>
-                                <li><a href="go-green.html">Go Green</a></li>
+                                <li><a onclick="document.location= topurl;" style="cursor: pointer;">Top Sellers</a></li>
+                                <li><a onclick="document.location= healthyurl;" style="cursor: pointer;">Healthy Choices</a></li>
+                                <li><a onclick="document.location= greenurl;" style="cursor: pointer;">Go Green</a></li>
                             </ul>
-                        </li>  
+                        </li>
+                         
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                              Tools <span class="caret"></span>
+                              Admin <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="shipping-optimizer.html">Shipping Optimizer</a></li>
-                                <li><a href="internal.html">Internal</a></li>
-                                <li><a href="admin.html">Admin Dashboards</a></li>
+                            	<li><a onclick="document.location= adminurl;" style="cursor: pointer;">Inventory Dashboard</a></li>
+                            	<li><a onclick="document.location= internalurl;" style="cursor: pointer;">Manager Metrics</a></li>
+                                <li><a onclick="document.location= shippingurl;" style="cursor: pointer;">New Report</a></li>
                             </ul>
-                        </li> 
+                        </li>
+                         
                       </ul>
                       
-                      <!-- Authentication login/logout interface -->
-                		<form class="navbar-form navbar-right" role="search">
-                    	<div class="form-group">
-                        <input type="text" class="form-control" id="username" placeholder="Username">&nbsp;&nbsp;
-                    	</div>
-                    	<div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Password">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    	</div>
-                    		<button type="button" class="btn btn-success btn-large" id="login">Login</button>&nbsp;&nbsp;
-                      	<button class="btn btn-success btn-large" id="logout">Logout</button>&nbsp;&nbsp;&nbsp;
-                         <a href="#" data-toggle="modal" data-target="#myModal">Info</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       <!-- Admin Logout link -->
+                		<form class="navbar-form navbar-right">
+                         <a href="index.html">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 		 </form>
+                		 
                     </div>
                     <!-- /.navbar-collapse -->
                   </div>
@@ -127,13 +177,18 @@
 							<div class="col-text">  
                       		<h2>Internal Store Management</h2>
                              <br>
-                  	  		<p class="lead">This page is only viewable by store managers and admins.</p>
-                  	  		<p class="lead">View login <b><u><a href="#" data-toggle="modal" data-target="#myModal" style="color:#CFC">info</a></u></b> for additional details.</p>
+                  	  		<p class="lead">These metrics change based on the manager/admin who is logged in.</p>
+                  	  		<!--
+                  	  		<h4 class="lead"><b><u><a href="#" data-toggle="modal" data-target="#myModal" style="color:#CFC">Change Login</a></u></b> to see the appropriate metrics.</h4>
+                  	  		<br/>
+							<button class="btn btn-success btn-large green-btn-custom admin-btn" onclick="document.location='internal.html';" id="logout">Logout</button>
+							<br/><br/>
+							-->
                       	</div>
                     </div>
                 
 					  <div class="col-md-8 main-col col-top-sellers">
-						<h2 class="chart-header">Manager sales and cost metrics by store - (Login to view)</h2>
+						<h2 class="chart-header">Manager sales and cost metrics by store</h2>
                        <br><br>
                		<div id="internal1" class="chart-container internal" align="center"></div> 
 					  </div>
