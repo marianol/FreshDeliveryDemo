@@ -36,7 +36,7 @@ visualize({
     };
     
     var dashboard = v.dashboard({
-        resource: "/public/Samples/FreshDelivery_Demo/Admin_Inventory_Dashboard",
+        resource: "/public/Samples/FreshDelivery_Demo/22.0_Blank_Starting_Dashboard",
         container: "#container",
         error: handleError,
         params: initialParams,
