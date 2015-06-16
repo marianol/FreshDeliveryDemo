@@ -21,7 +21,7 @@ Essentially contains a demo site (Fresh Delivery) a set of reports integrated wi
 - A [JasperReports Server v6.1](http://www.jaspersoft.com/three-ways-test-drive-jaspersoft-bi-software) installed
 - A web server to host this sample. I use Apache HTTPD you use whatever floats your boat.
 
-### Instalation Steps
+### Installation Steps
 1. Unzip the release (or clone the repo) into your web server's web root. The instructions assume that this location is called 'FRESHDELIVERY_PATH'
 1. Import /JapserServerResources/freshDelivery-RepositoryExport.zip to your JasperServer 6.1 Pro instance. [Check this link if you do not know how.](http://community.jaspersoft.com/documentation/jasperreports-server-administration-guide-beta/import-and-export-through-web-ui#import-export_2353750880_1044705) and if you like the command line go to your JRS buildomatic folder and just `./js-import.sh --input-zip FRESHDELIVERY_PATH/JasperServerResources/freshDelivery-RepositoryExport.zip`
 1. Modify your jasperreports.properties to allow JavaScript functions in the HTML5 Charting Library
