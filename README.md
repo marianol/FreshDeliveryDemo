@@ -7,7 +7,7 @@ Code: https://github.com/marianol/FreshDeliveryDemo
 
 Author(s): [See list of Contributors](https://github.com/marianol/FreshDeliveryDemo/graphs/contributors)
 
-Version: 0.3
+Version: 0.4
 
 
 ##Description
