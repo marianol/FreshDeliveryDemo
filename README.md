@@ -1,4 +1,4 @@
-FreshDeliveryDemo 6.1
+FreshDeliveryDemo - 6.1
 =================
 
 This is a demo site that embeds [JasperReports Server](http://www.jaspersoft.com/meet-new-jaspersoft) using the [Visualize.js](http://community.jaspersoft.com/project/visualizejs) framework
