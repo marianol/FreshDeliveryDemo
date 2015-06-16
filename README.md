@@ -12,24 +12,24 @@ Version: 0.4
 
 ##Description
 The sample is designed to showcase the features of the Jasper Visualize.js framework to embed BI in web applications. 
-Ibe used with a set of reports that are included in this sample that depend on the Foodmart Sample dataset that is provided in the standard trial instalation of JasperServer Professional 6.0.
+Ibe used with a set of reports that are included in this sample that depend on the Foodmart Sample dataset that is provided in the standard trial instalation of JasperServer Professional 6.1.
 
 Essentially contains a demo site (Fresh Delivery) a set of reports integrated within. It runs form a WebServer since it only uses HTML and Javascript so there is no specific requirements for the webserver.
 
 ##Install the Sample
 ###Requirements / Dependencies
-- A [JasperReports Server v6.0](http://www.jaspersoft.com/three-ways-test-drive-jaspersoft-bi-software) installed
+- A [JasperReports Server v6.1](http://www.jaspersoft.com/three-ways-test-drive-jaspersoft-bi-software) installed
 - A web server to host this sample. I use Apache HTTPD you use whatever floats your boat.
 
 ### Instalation Steps
 1. Unzip the release (or clone the repo) into your web server's web root. The instructions assume that this location is called 'FRESHDELIVERY_PATH'
-1. Import /JapserServerResources/freshDelivery-RepositoryExport.zip to your JasperServer 6.0 Pro instance. [Check this link if you do not know how.](http://community.jaspersoft.com/documentation/jasperreports-server-administration-guide-beta/import-and-export-through-web-ui#import-export_2353750880_1044705) and if you like the command line go to your JRS buildomatic folder and just `./js-import.sh --input-zip FRESHDELIVERY_PATH/JasperServerResources/freshDelivery-RepositoryExport.zip`
+1. Import /JapserServerResources/freshDelivery-RepositoryExport.zip to your JasperServer 6.1 Pro instance. [Check this link if you do not know how.](http://community.jaspersoft.com/documentation/jasperreports-server-administration-guide-beta/import-and-export-through-web-ui#import-export_2353750880_1044705) and if you like the command line go to your JRS buildomatic folder and just `./js-import.sh --input-zip FRESHDELIVERY_PATH/JasperServerResources/freshDelivery-RepositoryExport.zip`
 1. Modify your jasperreports.properties to allow JavaScript functions in the HTML5 Charting Library
 	1. Locate your jasperreports.properties in JasperReportsServer  `<tomcat-home>/webapps/jasperserver-pro/WEB-INF/classes/jasperreports.properties`
 	1. Add this line at the end of the file:  `com.jaspersoft.jasperreports.highcharts.function.properties.allowed=true`
 1. This sample needs to add Lat/Long coordinates to the store table on the foodmart database
 	1. the sql file with this changes is located in the repo FRESHDELIVERY_PATH/JasperServerResources/foodmart-store-update.sql
-	1. use that sql script to update your DB, at the command prompt: `psql -U postgres -d foodmart -a -f FRESHDELIVERY_PATH/JasperServerResources/foodmart-store-update.sql` 
+	1. use that sql script to update your DB, at the command prompt: `psql -U postgres -d foodmart -a -f FRESHDELIVERY_PATH/JasperServerResources/foodmart-store-update.sql` Note: Use C:\ for path in Windows.
 1. The pages expect JasperServer to be accessible in `http://localhost:8080/jasperserver.pro` since that is normally not the case you will need to change this. For example if your jasperserver is located in `http://my.jasperserver.com:8080/jasperserver.pro` just open a terminal and do:
 ```
 $ sed -i 's~localhost~my.jasperserver.com~' /var/www/html/freshdelivery/go-green.html
@@ -51,9 +51,9 @@ $ sed -i 's~localhost~my.jasperserver.com~' /var/www/html/freshdelivery/healthy-
 LICENSE AND COPYRIGHT NOTIFICATION
 ==================================
 
- Copyright (C) 2005 - 2015 Jaspersoft Corporation - All rights reserved.
+ Copyright (C) 2005 - 2015 TIBCO Jaspersoft Corporation - All rights reserved.
 
- Unless you have purchased a commercial license agreement from Jaspersoft,
+ Unless you have purchased a commercial license agreement from TIBCO Jaspersoft,
  the following license terms apply:
 
  This program is free software: you can redistribute it and/or modify
