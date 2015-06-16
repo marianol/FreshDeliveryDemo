@@ -11,7 +11,7 @@ Version: 0.4
 
 
 ##Description
-The sample is designed to showcase the features of the Jasper Visualize.js framework to embed BI in web applications. 
+The sample is designed to showcase the features of the Jaspersoft Visualize.js framework to embed BI in web applications. 
 Ibe used with a set of reports that are included in this sample that depend on the Foodmart Sample dataset that is provided in the standard trial instalation of JasperServer Professional 6.1.
 
 Essentially this is a demo site (FreshDelivery) with a set of reports integrated within. It runs from a WebServer since it only uses HTML and Javascript so there is no specific requirements for the webserver.
