@@ -18,7 +18,7 @@ break;
 }
 }
 
-var initialurl = 'admin.html?u='+un+'&p='+pw;
+var initialurl = 'admin2.html?u='+un+'&p='+pw;
 if (valid) {
 window.location = initialurl;
 return false;

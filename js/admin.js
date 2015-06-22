@@ -46,6 +46,7 @@ visualize({
         }
     });
     
+    
     function buildParamsInput() {
         var params = dashboard.data().parameters;
 
@@ -57,6 +58,7 @@ visualize({
             $el.find("input").val(dashboard.params()[params[i].id]);
         }
     }
+    
     
     $("button").on("click", function() {
         var params = {};

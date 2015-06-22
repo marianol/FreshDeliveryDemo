@@ -587,6 +587,20 @@ h1.lead { text-transform: uppercase; font-size:40px;font-weight: 700;
 	margin-bottom:5px;
 }
 
+.admin-select2 {
+	width: 98%;
+	background-color:#719737;
+	color: #fff;
+	font-size:15px;
+	height:46px;
+	border-color: #57713b;
+	border:none;
+    outline:none;
+	padding:2px;
+	margin-left:5px;
+	margin-bottom:5px;
+}
+
 .internal {
 	height: 700px;
 }
