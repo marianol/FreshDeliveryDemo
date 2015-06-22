@@ -27,19 +27,19 @@ $(document).ready(function(){
      "pages" : [
      {
      "label" : "Create Adhoc",
-     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=adhocFlow&resource=/public/Samples/FreshDelivery_Demo/New_Admin_Ad_Hoc_View"
+     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=adhocFlow&resource=/public/Samples/FreshDelivery_Demo/New_Admin_Ad_Hoc_View&theme=embedded_scdp"
      },
 	 {
      "label" : "Library",
-     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=library"
+     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=library&theme=embedded_scdp"
      },  
      {
      "label" : "Report List",
-     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=search&filterId=resourceTypeFilter&filterOption=resourceTypeFilter-reports"
+     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=searchFlow&mode=search&filterId=resourceTypeFilter&filterOption=resourceTypeFilter-reports&theme=embedded_scdp"
      },
 	 {
      "label" : "Home",
-     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=homeFlow"
+     "url" : "http://localhost:8080/jasperserver-pro/flow.html?_flowId=homeFlow&theme=embedded_scdp"
      } 
          
      ]
@@ -72,7 +72,7 @@ visualize({
     console.log("Viz - login");    
     // Load the Repo seach by default..
     $('<iframe>', {
-       src: 'http://localhost:8080/jasperserver-pro/flow.html?_flowId=adhocFlow&resource=/public/Samples/FreshDelivery_Demo/New_Admin_Ad_Hoc_View',
+       src: 'http://localhost:8080/jasperserver-pro/flow.html?_flowId=adhocFlow&resource=/public/Samples/FreshDelivery_Demo/New_Admin_Ad_Hoc_View&theme=embedded_scdp',
        id:  'myFrame',
         width: 1160,
         height: 600,
