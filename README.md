@@ -9,6 +9,10 @@ Author(s): [See list of Contributors](https://github.com/marianol/FreshDeliveryD
 
 Version: 0.4
 
+##Fresh Delivery Demo Video
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=GOlhTmxZE9s
+" target="_blank"><img src="http://img.youtube.com/vi/GOlhTmxZE9s/0.jpg" 
+alt="Fresh Delivery Demo" width="240" height="180" border="10" /></a>
 
 ##Description
 The sample is designed to showcase the features of the Jaspersoft Visualize.js framework to embed BI in web applications. 
